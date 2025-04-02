@@ -1,47 +1,55 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import SingleQuestion from "@/components/SingleAnswer.vue";
+import QuizQuestion from "@/components/QuizQuestion.vue";
+import QuizJoker from "@/components/QuizJoker.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+  <header class="quiz-header">
+    <QuizQuestion>
+      When was the first episode of "Who Wants to Be a Millionaire?" aired?
+    </QuizQuestion>
   </header>
 
-  <main>
-    <TheWelcome />
+  <main class="quiz-container">
+    <div class="quiz-joker-group">
+      <QuizJoker joker-type="50-50" :selected="true" :used="false"/>
+      <QuizJoker joker-type="phone" :selected="false" :used="true"/>
+      <QuizJoker joker-type="fans" :selected="false" :used="false"/>
+    </div>
+
+    <div class="answer-group">
+      <SingleQuestion question-type="a" :correct="true"/>
+      <SingleQuestion question-type="b" :correct="false"/>
+      <SingleQuestion question-type="c"/>
+      <SingleQuestion question-type="d"/>
+    </div>
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+.quiz-header {
+  margin: 3rem 0 4rem 0;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.quiz-joker-group {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.answer-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
 }
 </style>

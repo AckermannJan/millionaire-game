@@ -1,14 +1,7 @@
 # millionaire-game
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+This is a simple Vue§ project that implements "who wants to be a millionaire" game.
+This is for a small birthday gift, so not that much time was spent on clean code and best practices.
 
 ## Project Setup
 
