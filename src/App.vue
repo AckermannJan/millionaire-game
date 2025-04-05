@@ -1,129 +1,129 @@
 <script setup lang="ts">
-import SingleQuestion from "@/components/SingleAnswer.vue";
-import QuizQuestion from "@/components/QuizQuestion.vue";
-import QuizJoker from "@/components/QuizJoker.vue";
-import thinkingSound from "@/assets/sounds/thinking.mp3";
-import wrongSound from "@/assets/sounds/wrong.mp3";
-import correctSound from "@/assets/sounds/correct.mp3";
-import nextQuestionSound from "@/assets/sounds/nextQuestion.mp3";
-import {useSound} from "@vueuse/sound";
-import questions from "@/assets/questions.json";
-import {computed, onMounted, ref} from "vue";
-import {JokersEnum, Option, Question, SelectedAnswer} from "@/types/question.ts";
+import SingleQuestion from '@/components/SingleAnswer.vue'
+import QuizQuestion from '@/components/QuizQuestion.vue'
+import QuizJoker from '@/components/QuizJoker.vue'
+import thinkingSound from '@/assets/sounds/thinking.mp3'
+import wrongSound from '@/assets/sounds/wrong.mp3'
+import correctSound from '@/assets/sounds/correct.mp3'
+import nextQuestionSound from '@/assets/sounds/nextQuestion.mp3'
+import { useSound } from '@vueuse/sound'
+import questions from '@/assets/questions.json'
+import { computed, onMounted, ref } from 'vue'
+import { JokersEnum, Option, Question, SelectedAnswer } from '@/types/question.ts'
 
 // Refs and Computed Properties
-const currentQuestionIndex = ref(0);
-const currentQuestion = computed<Question>(() => questions[currentQuestionIndex.value]);
+const currentQuestionIndex = ref(0)
+const currentQuestion = computed<Question>(() => questions[currentQuestionIndex.value])
 const dialog = ref<HTMLDivElement | null>(null)
 const selectedAnswer = ref<SelectedAnswer>({
   answer: null,
   isCorrect: null,
-});
-const isSelectionAnimationActive = ref(false);
-const hiddenAnswers = ref<number[]>([]);
+})
+const isSelectionAnimationActive = ref(false)
+const hiddenAnswers = ref<number[]>([])
 const quizResults = ref({
   correct: [],
   wrong: [],
-});
+})
 
 const jokerMetaData = ref({
   [JokersEnum.fiftyFifty]: { isUsed: false, isActive: false },
   [JokersEnum.phoneAFriend]: { isUsed: false, isActive: false },
   [JokersEnum.askTheAudience]: { isUsed: false, isActive: false },
-});
+})
 
 const questionTypeMap: Record<number, string> = {
-  0: "a",
-  1: "b",
-  2: "c",
-  3: "d",
-};
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  3: 'd',
+}
 
 // Sound Effects
 const { play: playThinking, stop: stopThinking } = useSound(thinkingSound, {
   onend: () => {
     playThinking()
   },
-});
-const { play: playCorrect } = useSound(correctSound);
-const { play: playWrong } = useSound(wrongSound);
+})
+const { play: playCorrect } = useSound(correctSound)
+const { play: playWrong } = useSound(wrongSound)
 const { play: playNextQuestion, stop: stopNextQuestion } = useSound(nextQuestionSound, {
   onend: () => {
-    playThinking();
+    playThinking()
   },
-});
+})
 
 // Methods
 const handleQuestionSelection = (option: Option, index: number) => {
-  if (isSelectionAnimationActive.value) return;
+  if (isSelectionAnimationActive.value) return
 
-  stopThinking();
-  stopNextQuestion();
-  selectedAnswer.value = { answer: index, isCorrect: option.isCorrect };
-  isSelectionAnimationActive.value = true;
+  stopThinking()
+  stopNextQuestion()
+  selectedAnswer.value = { answer: index, isCorrect: option.isCorrect }
+  isSelectionAnimationActive.value = true
 
-  if(option.isCorrect) {
-    quizResults.value.correct.push(index);
-    playCorrect();
+  if (option.isCorrect) {
+    quizResults.value.correct.push(index)
+    playCorrect()
   } else {
     // TODO: Handle wrong answer
-    quizResults.value.wrong.push(index);
-    playWrong();
+    quizResults.value.wrong.push(index)
+    playWrong()
   }
 
-  flashAnswer(index);
-  setTimeout(nextQuestion, 7000);
-};
+  flashAnswer(index)
+  setTimeout(nextQuestion, 7000)
+}
 
 const flashAnswer = (index: number) => {
-  const flashCount = 7;
+  const flashCount = 7
   const flashInterval = setInterval(() => {
-    selectedAnswer.value.answer = selectedAnswer.value.answer === null ? index : null;
-  }, 500);
+    selectedAnswer.value.answer = selectedAnswer.value.answer === null ? index : null
+  }, 500)
 
   setTimeout(() => {
-    clearInterval(flashInterval);
-    selectedAnswer.value.answer = index;
-  }, flashCount * 500);
-};
+    clearInterval(flashInterval)
+    selectedAnswer.value.answer = index
+  }, flashCount * 500)
+}
 
 const handleJokerSelection = (joker: JokersEnum) => {
-  const jokerData = jokerMetaData.value[joker];
-  if (jokerData.isUsed) return;
+  const jokerData = jokerMetaData.value[joker]
+  if (jokerData.isUsed) return
 
-  jokerData.isActive = true;
+  jokerData.isActive = true
   if (joker === JokersEnum.fiftyFifty) {
-    hiddenAnswers.value = currentQuestion.value.jokers[JokersEnum.fiftyFifty].optionsToRemove;
+    hiddenAnswers.value = currentQuestion.value.jokers[JokersEnum.fiftyFifty].optionsToRemove
   }
-  if(joker === JokersEnum.askTheAudience) {
+  if (joker === JokersEnum.askTheAudience) {
     // Open the dialog
     if (dialog.value) {
-      dialog.value.showModal();
+      dialog.value.showModal()
     }
   }
-};
+}
 
 const nextQuestion = () => {
-  resetGameForNextQuestion();
-  playNextQuestion();
-};
+  resetGameForNextQuestion()
+  playNextQuestion()
+}
 
 const resetGameForNextQuestion = () => {
-  selectedAnswer.value = { answer: null, isCorrect: null };
-  isSelectionAnimationActive.value = false;
-  hiddenAnswers.value = [];
+  selectedAnswer.value = { answer: null, isCorrect: null }
+  isSelectionAnimationActive.value = false
+  hiddenAnswers.value = []
 
   Object.values(JokersEnum).forEach((joker) => {
-    const jokerData = jokerMetaData.value[joker];
+    const jokerData = jokerMetaData.value[joker]
     if (jokerData.isActive) {
-      jokerData.isUsed = true;
-      jokerData.isActive = false;
+      jokerData.isUsed = true
+      jokerData.isActive = false
     }
-  });
-};
+  })
+}
 
 onMounted(() => {
-  dialog.value = document.getElementById("askTheAudience");
+  dialog.value = document.getElementById('askTheAudience')
 })
 </script>
 
@@ -163,7 +163,7 @@ onMounted(() => {
         :key="index"
       >
         {{ option.option }}: {{ option.percentage }}%
-        <div :style="{width: `${option.percentage}%`}" class="audience-joker-dialog__bar" />
+        <div :style="{ width: `${option.percentage}%` }" class="audience-joker-dialog__bar" />
       </div>
       <button class="audience-joker-dialog__button" @click="dialog.close()">Close</button>
     </dialog>

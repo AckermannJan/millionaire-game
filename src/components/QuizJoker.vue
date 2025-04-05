@@ -1,10 +1,10 @@
 <script setup lang="ts">
 ///// imports /////
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 ///// props/emits /////
 
-const props = defineProps({
+defineProps({
   jokerType: {
     type: String,
     required: true,
@@ -17,7 +17,7 @@ const props = defineProps({
     type: Boolean,
     default: null,
   },
-});
+})
 
 ///// refs and variables /////
 
@@ -31,7 +31,13 @@ const props = defineProps({
 </script>
 
 <template>
-  <div :class="['quiz-joker' , `quiz-joker--joker-${jokerType}`, {'quiz-joker--selected': selected, 'quiz-joker--used': used}]" />
+  <div
+    :class="[
+      'quiz-joker',
+      `quiz-joker--joker-${jokerType}`,
+      { 'quiz-joker--selected': selected, 'quiz-joker--used': used },
+    ]"
+  />
 </template>
 
 <style lang="scss">

@@ -16,9 +16,7 @@
 
 <template>
   <div class="quiz-question">
-    <div class="quiz-question__price">
-      Current price
-    </div>
+    <div class="quiz-question__price">Current price</div>
     <div class="quiz-question__text">
       <slot />
     </div>
