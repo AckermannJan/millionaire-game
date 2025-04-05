@@ -4,20 +4,11 @@ import { defineProps } from 'vue'
 
 ///// props/emits /////
 
-defineProps({
-  questionType: {
-    type: String,
-    required: true,
-  },
-  correct: {
-    type: Boolean,
-    default: null,
-  },
-  isHidden: {
-    type: Boolean,
-    default: null,
-  },
-})
+defineProps<{
+  questionType: string
+  correct: boolean | null
+  isHidden: boolean
+}>()
 
 ///// refs and variables /////
 
@@ -53,7 +44,7 @@ defineProps({
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 
   &__text {

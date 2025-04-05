@@ -26,7 +26,7 @@
 <style lang="scss">
 .quiz-question {
   background: url('../assets/images/question.png') no-repeat center;
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;

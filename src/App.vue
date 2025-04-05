@@ -9,19 +9,19 @@ import nextQuestionSound from '@/assets/sounds/nextQuestion.mp3'
 import { useSound } from '@vueuse/sound'
 import questions from '@/assets/questions.json'
 import { computed, onMounted, ref } from 'vue'
-import { JokersEnum, Option, Question, SelectedAnswer } from '@/types/question.ts'
+import { JokersEnum, type Option, type Question, type SelectedAnswer } from '@/types/question.ts'
 
 // Refs and Computed Properties
 const currentQuestionIndex = ref(0)
 const currentQuestion = computed<Question>(() => questions[currentQuestionIndex.value])
-const dialog = ref<HTMLDivElement | null>(null)
+const dialog = ref<HTMLDialogElement | null>(null)
 const selectedAnswer = ref<SelectedAnswer>({
   answer: null,
   isCorrect: null,
 })
 const isSelectionAnimationActive = ref(false)
 const hiddenAnswers = ref<number[]>([])
-const quizResults = ref({
+const quizResults = ref<Record<string, number[]>>({
   correct: [],
   wrong: [],
 })
@@ -87,7 +87,7 @@ const flashAnswer = (index: number) => {
   }, flashCount * 500)
 }
 
-const handleJokerSelection = (joker: JokersEnum) => {
+const handleJokerSelection = (joker: keyof typeof JokersEnum) => {
   const jokerData = jokerMetaData.value[joker]
   if (jokerData.isUsed) return
 
@@ -123,7 +123,7 @@ const resetGameForNextQuestion = () => {
 }
 
 onMounted(() => {
-  dialog.value = document.getElementById('askTheAudience')
+  dialog.value = document.getElementById('askTheAudience') as HTMLDialogElement | null
 })
 </script>
 
@@ -135,7 +135,7 @@ onMounted(() => {
   <main class="quiz-container">
     <div class="quiz-joker-group">
       <QuizJoker
-        v-for="joker in Object.keys(JokersEnum)"
+        v-for="joker in Object.keys(JokersEnum) as Array<keyof typeof JokersEnum>"
         :key="joker"
         :joker-type="joker"
         :selected="jokerMetaData[joker].isActive"
@@ -165,7 +165,7 @@ onMounted(() => {
         {{ option.option }}: {{ option.percentage }}%
         <div :style="{ width: `${option.percentage}%` }" class="audience-joker-dialog__bar" />
       </div>
-      <button class="audience-joker-dialog__button" @click="dialog.close()">Close</button>
+      <button class="audience-joker-dialog__button" @click="dialog?.close()">Close</button>
     </dialog>
   </main>
 </template>
@@ -198,6 +198,7 @@ onMounted(() => {
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
+  width: 100%;
 }
 
 .audience-joker-dialog {
