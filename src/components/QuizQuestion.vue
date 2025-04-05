@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 ///// imports /////
 
 ///// props/emits /////
@@ -20,14 +20,14 @@
       Current price
     </div>
     <div class="quiz-question__text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <slot />
     </div>
   </div>
 </template>
 
 <style lang="scss">
 .quiz-question {
-  background: url('../assets/question.png') no-repeat center;
+  background: url('../assets/images/question.png') no-repeat center;
   width: 65%;
   margin: 0 auto;
   display: flex;
@@ -41,7 +41,7 @@
     color: #000;
     height: 45px;
     width: 75%;
-    background: url(/src/assets/price.png) no-repeat center/contain;
+    background: url(/src/assets/images/price.png) no-repeat center/contain;
     position: absolute;
     top: 1.5rem;
     left: 12%;

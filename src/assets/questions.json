@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "options": [
+      { "option": "Berlin", "isCorrect": false },
+      { "option": "Madrid", "isCorrect": false },
+      { "option": "Paris", "isCorrect": true },
+      { "option": "Rome", "isCorrect": false }
+    ],
+    "jokers": {
+      "fiftyFifty": {
+        "optionsToRemove": [0, 1]
+      },
+      "phoneAFriend": {
+        "friendAnswer": "I think it's Paris."
+      },
+      "askTheAudience": {
+        "audiencePoll": [
+          { "option": "Berlin", "percentage": 10 },
+          { "option": "Madrid", "percentage": 20 },
+          { "option": "Paris", "percentage": 69 },
+          { "option": "Rome", "percentage": 1 }
+        ]
+      }
+    }
+  }
+]

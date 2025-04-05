@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 ///// imports /////
 import { defineProps } from 'vue';
 
@@ -43,14 +43,14 @@ const props = defineProps({
   display: flex;
   align-items: center;
 
-  &--joker-50-50 {
-    background-image: url('../assets/joker-50-50.png');
+  &--joker-fiftyFifty {
+    background-image: url('../assets/images/fiftyFifty.png');
   }
-  &--joker-fans {
-    background-image: url('../assets/joker-fans.png');
+  &--joker-askTheAudience {
+    background-image: url('../assets/images/askTheAudience.png');
   }
-  &--joker-phone {
-    background-image: url('../assets/joker-phone.png');
+  &--joker-phoneAFriend {
+    background-image: url('../assets/images/phoneAFriend.png');
   }
 
   &--selected {

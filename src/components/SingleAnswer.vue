@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 ///// imports /////
 import { defineProps } from 'vue';
 
@@ -10,6 +10,10 @@ const props = defineProps({
     required: true,
   },
   correct: {
+    type: Boolean,
+    default: null,
+  },
+  isHidden: {
     type: Boolean,
     default: null,
   },
@@ -27,9 +31,15 @@ const props = defineProps({
 </script>
 
 <template>
-  <div :class="['question' , `question--answer-${questionType}`, { 'question--correct': correct, 'question--wrong': correct === false}]">
-    <span class="question__text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  <div :class="[
+    'question' ,
+    `question--answer-${questionType}`,
+     { 'question--correct': correct},
+      {'question--wrong': correct === false},
+       {'question--is-hidden': isHidden},
+     ]">
+  <span class="question__text">
+      <slot />
     </span>
   </div>
 </template>
@@ -53,17 +63,21 @@ const props = defineProps({
       display: block;
     }
 
+    &--is-hidden {
+      visibility: hidden;
+    }
+
     &--answer-a {
-      background-image: url('../assets/answer-a.png');
+      background-image: url('../assets/images/answer-a.png');
     }
     &--answer-b {
-      background-image: url('../assets/answer-b.png');
+      background-image: url('../assets/images/answer-b.png');
     }
     &--answer-c {
-      background-image: url('../assets/answer-c.png');
+      background-image: url('../assets/images/answer-c.png');
     }
     &--answer-d {
-      background-image: url('../assets/answer-d.png');
+      background-image: url('../assets/images/answer-d.png');
     }
 
     &--correct {
