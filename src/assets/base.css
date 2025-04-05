@@ -14,8 +14,14 @@ body {
 #app {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 100vh;
   padding-bottom: 40px;
+    max-width: 768px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        justify-content: space-between;
+    }
 }

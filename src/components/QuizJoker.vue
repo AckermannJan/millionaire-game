@@ -60,5 +60,10 @@ const props = defineProps({
   &--used {
     filter: saturate(0);
   }
+
+  @media (max-width: 430px) {
+    height: 10vh;
+    background-position: center;
+  }
 }
 </style>

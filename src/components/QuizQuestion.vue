@@ -27,9 +27,12 @@
 
 <style lang="scss">
 .quiz-question {
-  height: 200px;
   background: url('../assets/question.png') no-repeat center;
-  position: relative;
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
 
   &__price {
     font-size: 21px;
@@ -37,11 +40,11 @@
     font-weight: 700;
     color: #000;
     height: 45px;
-    width: 70vw;
+    width: 75%;
     background: url(/src/assets/price.png) no-repeat center/contain;
     position: absolute;
-    top: -1rem;
-    left: 4rem;
+    top: 1.5rem;
+    left: 12%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,11 +55,27 @@
     line-height: 18px;
     font-weight: 700;
     color: #fff;
-    padding: 20px 70px;
+    padding: 20px 50px;
     height: 100%;
     display: flex;
     align-items: center;
     text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    width: 81vw;
+    max-width: 400px;
+    margin: 0;
+    background-position: center;
+    background-size: contain;
+  }
+
+  @media (max-width: 430px) {
+    width: 95vw;
+
+    &__text {
+      font-size: 18px;
+    }
   }
 }
 </style>

@@ -41,14 +41,15 @@ const props = defineProps({
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    width: 65%;
+    margin: 0 auto;
 
     &__text {
       font-size: 21px;
       line-height: 18px;
       font-weight: 700;
       color: #fff;
-      margin-left: 80px;
+      margin-left: 70px;
       display: block;
     }
 
@@ -71,6 +72,42 @@ const props = defineProps({
 
     &--wrong {
       filter: hue-rotate(150deg) saturate(2);
+    }
+
+    // mobile
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 540px;
+      height: 10vh;
+      margin: 0;
+      background-position: center;
+
+      &__text {
+        margin-left: 15vw;
+        height: 100%;
+        padding: 20px 60px 20px 0;
+        width: 70vw;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 430px) {
+      height: 7vh;
+
+      &__text {
+        padding: 5px 40px 5px 0;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      height: 9vh;
+
+      &__text {
+        padding: 5px 30px 5px 0;
+        font-size: 16px;
+      }
     }
   }
 </style>

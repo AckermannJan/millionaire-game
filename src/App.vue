@@ -29,7 +29,11 @@ import QuizJoker from "@/components/QuizJoker.vue";
 
 <style>
 .quiz-header {
-  margin: 3rem 0 4rem 0;
+  flex: 1;
+
+  @media (max-width: 430px) {
+    margin: 5vh 0 2rem 0;
+  }
 }
 
 .quiz-container {
@@ -38,18 +42,30 @@ import QuizJoker from "@/components/QuizJoker.vue";
   align-items: center;
   justify-content: center;
   gap: 3rem;
+
+  @media (max-width: 430px) {
+    gap: 1rem;
+  }
 }
 
 .quiz-joker-group {
   display: flex;
   justify-content: center;
   gap: 2.5rem;
+
+  @media (max-width: 430px) {
+    gap: 1rem;
+  }
 }
 
 .answer-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2rem;
   justify-content: center;
+
+  @media (max-width: 430px) {
+    gap: 1rem;
+  }
 }
 </style>
