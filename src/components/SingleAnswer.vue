@@ -1,6 +1,7 @@
 <script setup lang="ts">
 ///// imports /////
 import { defineProps } from 'vue'
+import GameButton from '@/components/GameButton.vue'
 
 ///// props/emits /////
 
@@ -22,7 +23,7 @@ defineProps<{
 </script>
 
 <template>
-  <div
+  <GameButton
     :class="[
       'question',
       `question--answer-${questionType}`,
@@ -31,46 +32,31 @@ defineProps<{
       { 'question--is-hidden': isHidden },
     ]"
   >
-    <span class="question__text">
-      <slot />
-    </span>
-  </div>
+    <template v-if="questionType === 'a'" #prepend>
+      <span class="question__type">A:</span>
+    </template>
+    <template v-else-if="questionType === 'b'" #prepend>
+      <span class="question__type">B:</span>
+    </template>
+    <template v-else-if="questionType === 'c'" #prepend>
+      <span class="question__type">C:</span>
+    </template>
+    <template v-else-if="questionType === 'd'" #prepend>
+      <span class="question__type">D:</span>
+    </template>
+    <slot />
+  </GameButton>
 </template>
 
 <style lang="scss">
 .question {
-  height: 76px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-
-  &__text {
-    font-size: 21px;
-    line-height: 18px;
-    font-weight: 700;
-    color: #fff;
-    margin-left: 70px;
-    display: block;
+  &__type {
+    color: goldenrod;
+    font-size: 26px;
   }
 
   &--is-hidden {
     visibility: hidden;
-  }
-
-  &--answer-a {
-    background-image: url('../assets/images/answer-a.png');
-  }
-  &--answer-b {
-    background-image: url('../assets/images/answer-b.png');
-  }
-  &--answer-c {
-    background-image: url('../assets/images/answer-c.png');
-  }
-  &--answer-d {
-    background-image: url('../assets/images/answer-d.png');
   }
 
   &--correct {
@@ -79,42 +65,6 @@ defineProps<{
 
   &--wrong {
     filter: hue-rotate(150deg) saturate(2);
-  }
-
-  // mobile
-  @media (max-width: 768px) {
-    width: 100%;
-    max-width: 540px;
-    height: 10vh;
-    margin: 0;
-    background-position: center;
-
-    &__text {
-      margin-left: 15vw;
-      height: 100%;
-      padding: 20px 60px 20px 0;
-      width: 70vw;
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  @media (max-width: 430px) {
-    height: 7vh;
-
-    &__text {
-      padding: 5px 40px 5px 0;
-      font-size: 18px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    height: 9vh;
-
-    &__text {
-      padding: 5px 30px 5px 0;
-      font-size: 16px;
-    }
   }
 }
 </style>

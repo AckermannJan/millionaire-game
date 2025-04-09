@@ -1,22 +1,6 @@
-<script setup lang="ts">
-///// imports /////
-
-///// props/emits /////
-
-///// refs and variables /////
-
-///// computed /////
-
-///// functions /////
-
-///// watchers /////
-
-///// lifecycle /////
-</script>
-
 <template>
   <div class="quiz-question">
-    <div class="quiz-question__price">Current price</div>
+    <div class="quiz-question__price"><slot name="price"></slot></div>
     <div class="quiz-question__text">
       <slot />
     </div>
@@ -55,9 +39,11 @@
     color: #fff;
     padding: 20px 50px;
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
   }
 
   @media (max-width: 768px) {

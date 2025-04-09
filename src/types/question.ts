@@ -35,4 +35,5 @@ export interface Question {
   question: string
   options: Option[]
   jokers: Jokers
+  price: string
 }
