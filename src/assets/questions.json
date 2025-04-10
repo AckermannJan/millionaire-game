@@ -1,57 +1,7 @@
 [
   {
-    "question": "Wie nennt mich meine Freundin manchmal liebevoll?",
-    "price": "Europapark",
-    "options": [
-      {
-        "option": "Red hot knuddeli",
-        "isCorrect": true
-      },
-      {
-        "option": "Knuddelbär",
-        "isCorrect": false
-      },
-      {
-        "option": "Mein kleiner Fuchs",
-        "isCorrect": false
-      },
-      {
-        "option": "Kuschelmonster",
-        "isCorrect": false
-      }
-    ],
-    "jokers": {
-      "fiftyFifty": {
-        "optionsToRemove": [1, 2]
-      },
-      "phoneAFriend": {
-        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Red hot knuddeli'."
-      },
-      "askTheAudience": {
-        "audiencePoll": [
-          {
-            "option": "Red hot knuddeli",
-            "percentage": 74
-          },
-          {
-            "option": "Knuddelbär",
-            "percentage": 9
-          },
-          {
-            "option": "Mein kleiner Fuchs",
-            "percentage": 17
-          },
-          {
-            "option": "Kuschelmonster",
-            "percentage": 7
-          }
-        ]
-      }
-    }
-  },
-  {
     "question": "Welcher Sport verbindet uns beide besonders?",
-    "price": "Europapark",
+    "price": "Brief",
     "options": [
       {
         "option": "Joggen",
@@ -100,8 +50,58 @@
     }
   },
   {
+    "question": "Was ist unser lied?",
+    "price": "Massage",
+    "options": [
+      {
+        "option": "All Too Well – Taylor Swift",
+        "isCorrect": false
+      },
+      {
+        "option": "Perfect – Ed Sheeran",
+        "isCorrect": false
+      },
+      {
+        "option": "Enchanted – Taylor Swift",
+        "isCorrect": true
+      },
+      {
+        "option": "Love Story – Taylor Swift",
+        "isCorrect": false
+      }
+    ],
+    "jokers": {
+      "fiftyFifty": {
+        "optionsToRemove": [0, 1]
+      },
+      "phoneAFriend": {
+        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Taylor swift enchanted'."
+      },
+      "askTheAudience": {
+        "audiencePoll": [
+          {
+            "option": "All Too Well – Taylor Swift",
+            "percentage": 19
+          },
+          {
+            "option": "Perfect – Ed Sheeran",
+            "percentage": 13
+          },
+          {
+            "option": "Taylor swift enchanted",
+            "percentage": 70
+          },
+          {
+            "option": "Love Story – Taylor Swift",
+            "percentage": 6
+          }
+        ]
+      }
+    }
+  },
+  {
     "question": "In welchem verrückten Club hatten wir unser sexy Outfit-Abenteuer?",
-    "price": "Europapark",
+    "price": "Blumentopf",
     "options": [
       {
         "option": "Berghain",
@@ -144,6 +144,206 @@
           {
             "option": "Kabinett der kuriositäten",
             "percentage": 60
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "Wo war unser erster Kuss?",
+    "price": "Blumentstrauß",
+    "options": [
+      {
+        "option": "Auf dem Balkon",
+        "isCorrect": false
+      },
+      {
+        "option": "Großer Feldberg",
+        "isCorrect": true
+      },
+      {
+        "option": "Am Seeufer",
+        "isCorrect": false
+      },
+      {
+        "option": "Im Auto",
+        "isCorrect": false
+      }
+    ],
+    "jokers": {
+      "fiftyFifty": {
+        "optionsToRemove": [0, 2]
+      },
+      "phoneAFriend": {
+        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Großer Feldberg'."
+      },
+      "askTheAudience": {
+        "audiencePoll": [
+          {
+            "option": "Auf dem Balkon",
+            "percentage": 8
+          },
+          {
+            "option": "Großer Feldberg",
+            "percentage": 70
+          },
+          {
+            "option": "Am Seeufer",
+            "percentage": 16
+          },
+          {
+            "option": "Im Auto",
+            "percentage": 18
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "Welchen Spitznamen habe ich für dich?",
+    "price": "Kochen",
+    "options": [
+      {
+        "option": "Schmusebärchen",
+        "isCorrect": true
+      },
+      {
+        "option": "Tigerchen",
+        "isCorrect": false
+      },
+      {
+        "option": "Zuckerschnute",
+        "isCorrect": false
+      },
+      {
+        "option": "Kuschelmaus",
+        "isCorrect": false
+      }
+    ],
+    "jokers": {
+      "fiftyFifty": {
+        "optionsToRemove": [1, 2]
+      },
+      "phoneAFriend": {
+        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Schmusebärchen'."
+      },
+      "askTheAudience": {
+        "audiencePoll": [
+          {
+            "option": "Schmusebärchen",
+            "percentage": 60
+          },
+          {
+            "option": "Tigerchen",
+            "percentage": 17
+          },
+          {
+            "option": "Zuckerschnute",
+            "percentage": 8
+          },
+          {
+            "option": "Kuschelmaus",
+            "percentage": 12
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "Was war unser erster gemeinsamer Urlaubsort?",
+    "price": "Polaroid",
+    "options": [
+      {
+        "option": "Garmisch-Partenkirchen",
+        "isCorrect": false
+      },
+      {
+        "option": "Lermoos",
+        "isCorrect": true
+      },
+      {
+        "option": "Innsbruck",
+        "isCorrect": false
+      },
+      {
+        "option": "Zell am See",
+        "isCorrect": false
+      }
+    ],
+    "jokers": {
+      "fiftyFifty": {
+        "optionsToRemove": [0, 2]
+      },
+      "phoneAFriend": {
+        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Lermoos'."
+      },
+      "askTheAudience": {
+        "audiencePoll": [
+          {
+            "option": "Garmisch-Partenkirchen",
+            "percentage": 18
+          },
+          {
+            "option": "Lermoos",
+            "percentage": 63
+          },
+          {
+            "option": "Innsbruck",
+            "percentage": 11
+          },
+          {
+            "option": "Zell am See",
+            "percentage": 6
+          }
+        ]
+      }
+    }
+  },
+  {
+    "question": "Wie nennen mich viele meiner Freunde?",
+    "price": "Brettspiel",
+    "options": [
+      {
+        "option": "Acki",
+        "isCorrect": false
+      },
+      {
+        "option": "J",
+        "isCorrect": false
+      },
+      {
+        "option": "Ackermann",
+        "isCorrect": true
+      },
+      {
+        "option": "Ackersmann",
+        "isCorrect": false
+      }
+    ],
+    "jokers": {
+      "fiftyFifty": {
+        "optionsToRemove": [1, 2]
+      },
+      "phoneAFriend": {
+        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Red hot knuddeli'."
+      },
+      "askTheAudience": {
+        "audiencePoll": [
+          {
+            "option": "Red hot knuddeli",
+            "percentage": 74
+          },
+          {
+            "option": "Knuddelbär",
+            "percentage": 9
+          },
+          {
+            "option": "Mein kleiner Fuchs",
+            "percentage": 17
+          },
+          {
+            "option": "Kuschelmonster",
+            "percentage": 7
           }
         ]
       }
@@ -200,208 +400,8 @@
     }
   },
   {
-    "question": "Wo war unser erster Kuss?",
-    "price": "Europapark",
-    "options": [
-      {
-        "option": "Auf dem Balkon",
-        "isCorrect": false
-      },
-      {
-        "option": "Großer Feldberg",
-        "isCorrect": true
-      },
-      {
-        "option": "Am Seeufer",
-        "isCorrect": false
-      },
-      {
-        "option": "Im Auto",
-        "isCorrect": false
-      }
-    ],
-    "jokers": {
-      "fiftyFifty": {
-        "optionsToRemove": [0, 2]
-      },
-      "phoneAFriend": {
-        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Großer Feldberg'."
-      },
-      "askTheAudience": {
-        "audiencePoll": [
-          {
-            "option": "Auf dem Balkon",
-            "percentage": 8
-          },
-          {
-            "option": "Großer Feldberg",
-            "percentage": 70
-          },
-          {
-            "option": "Am Seeufer",
-            "percentage": 16
-          },
-          {
-            "option": "Im Auto",
-            "percentage": 18
-          }
-        ]
-      }
-    }
-  },
-  {
-    "question": "Welchen Spitznamen habe ich für dich?",
-    "price": "Europapark",
-    "options": [
-      {
-        "option": "Schmusebärchen",
-        "isCorrect": true
-      },
-      {
-        "option": "Tigerchen",
-        "isCorrect": false
-      },
-      {
-        "option": "Zuckerschnute",
-        "isCorrect": false
-      },
-      {
-        "option": "Kuschelmaus",
-        "isCorrect": false
-      }
-    ],
-    "jokers": {
-      "fiftyFifty": {
-        "optionsToRemove": [1, 2]
-      },
-      "phoneAFriend": {
-        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Schmusebärchen'."
-      },
-      "askTheAudience": {
-        "audiencePoll": [
-          {
-            "option": "Schmusebärchen",
-            "percentage": 60
-          },
-          {
-            "option": "Tigerchen",
-            "percentage": 17
-          },
-          {
-            "option": "Zuckerschnute",
-            "percentage": 8
-          },
-          {
-            "option": "Kuschelmaus",
-            "percentage": 12
-          }
-        ]
-      }
-    }
-  },
-  {
-    "question": "Was war unser erster gemeinsamer Urlaubsort?",
-    "price": "Europapark",
-    "options": [
-      {
-        "option": "Garmisch-Partenkirchen",
-        "isCorrect": false
-      },
-      {
-        "option": "Lermoos",
-        "isCorrect": true
-      },
-      {
-        "option": "Innsbruck",
-        "isCorrect": false
-      },
-      {
-        "option": "Zell am See",
-        "isCorrect": false
-      }
-    ],
-    "jokers": {
-      "fiftyFifty": {
-        "optionsToRemove": [0, 2]
-      },
-      "phoneAFriend": {
-        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Lermoos'."
-      },
-      "askTheAudience": {
-        "audiencePoll": [
-          {
-            "option": "Garmisch-Partenkirchen",
-            "percentage": 18
-          },
-          {
-            "option": "Lermoos",
-            "percentage": 63
-          },
-          {
-            "option": "Innsbruck",
-            "percentage": 11
-          },
-          {
-            "option": "Zell am See",
-            "percentage": 6
-          }
-        ]
-      }
-    }
-  },
-  {
-    "question": "Was ist unser lied?",
-    "price": "Europapark",
-    "options": [
-      {
-        "option": "All Too Well – Taylor Swift",
-        "isCorrect": false
-      },
-      {
-        "option": "Perfect – Ed Sheeran",
-        "isCorrect": false
-      },
-      {
-        "option": "Enchanted – Taylor Swift",
-        "isCorrect": true
-      },
-      {
-        "option": "Love Story – Taylor Swift",
-        "isCorrect": false
-      }
-    ],
-    "jokers": {
-      "fiftyFifty": {
-        "optionsToRemove": [0, 1]
-      },
-      "phoneAFriend": {
-        "friendAnswer": "Ich bin mir ziemlich sicher, es ist 'Taylor swift enchanted'."
-      },
-      "askTheAudience": {
-        "audiencePoll": [
-          {
-            "option": "All Too Well – Taylor Swift",
-            "percentage": 19
-          },
-          {
-            "option": "Perfect – Ed Sheeran",
-            "percentage": 13
-          },
-          {
-            "option": "Taylor swift enchanted",
-            "percentage": 70
-          },
-          {
-            "option": "Love Story – Taylor Swift",
-            "percentage": 6
-          }
-        ]
-      }
-    }
-  },
-  {
     "question": "Was war das erste Geschenk, das ich dir gemacht habe?",
-    "price": "Europapark",
+    "price": "Cabin",
     "options": [
       {
         "option": "Auto",
