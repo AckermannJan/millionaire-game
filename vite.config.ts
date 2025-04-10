@@ -20,9 +20,9 @@ export default defineConfig({
         'app-icon_x192.png',
       ],
       manifest: {
-        name: 'My Awesome App',
-        short_name: 'MyApp',
-        description: 'My Awesome App description',
+        name: 'Lisas Geburtstag App',
+        short_name: 'Geburtstag',
+        description: 'Lisas Geburtstags App',
         theme_color: '#ffffff',
         icons: [
           {
